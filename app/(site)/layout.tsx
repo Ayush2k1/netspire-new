@@ -10,6 +10,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import Navbar from "@/components/Navbar/Navbar";
 import LogoAnimation from "@/components/LogoAnimation";
 import { DisableDraftMode } from "@/components/DisableDraftMode";
+import SmoothScroll from "@/components/SmoothScroll";
 //import { Toaster } from "sonner";
 
 const MobileAccountNav = dynamic(
@@ -76,32 +77,34 @@ export default async function RootLayout({
       data-sanity-edit-target
     >
       <body className="bg-white h-auto! antialiased  ">
-        <Navbar settingsData={initial.data} />
-        <MobileAccountNav settingsData={initial.data} />
-        <LogoAnimation settingsData={initial.data} />
-        <div vaul-drawer-wrapper="" className="bg-white min-h-screen">
-          {children}
-        </div>
-        <VisualEditing />
-        {/* <Toaster /> */}
-        <Footer
-          settingsData={
-            initial.data as unknown & {
-              gradient: {
-                colorPicker1: { hex: string };
-                colorPicker2: { hex: string };
-                colorPicker3: { hex: string };
-                colorPicker4: { hex: string };
-              };
+        <SmoothScroll>
+          <Navbar settingsData={initial.data} />
+          <MobileAccountNav settingsData={initial.data} />
+          <LogoAnimation settingsData={initial.data} />
+          <div vaul-drawer-wrapper="" className="bg-white min-h-screen">
+            {children}
+          </div>
+          <VisualEditing />
+          {/* <Toaster /> */}
+          <Footer
+            settingsData={
+              initial.data as unknown & {
+                gradient: {
+                  colorPicker1: { hex: string };
+                  colorPicker2: { hex: string };
+                  colorPicker3: { hex: string };
+                  colorPicker4: { hex: string };
+                };
+              }
             }
-          }
-        />
-        {(await draftMode()).isEnabled && (
-          <>
-            <DisableDraftMode />
-            <VisualEditing />
-          </>
-        )}
+          />
+          {(await draftMode()).isEnabled && (
+            <>
+              <DisableDraftMode />
+              <VisualEditing />
+            </>
+          )}{" "}
+        </SmoothScroll>
       </body>
     </html>
   );

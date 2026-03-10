@@ -287,7 +287,6 @@ export default function Home() {
   return (
     <div className="sh-page">
       <style dangerouslySetInnerHTML={{ __html: styles }} />
-      <ReactLenis root />
 
       <nav className="sh-nav">
         <p>Static House</p>

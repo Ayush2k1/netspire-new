@@ -10,6 +10,8 @@ import GradientHero from "@/components/SectionPicker/ayush/GradientHero";
 import StickyCards from "@/components/SectionPicker/ayush/StickyCards";
 import Hemingway from "@/components/SectionPicker/ayush/Hemmingway";
 import StaticHousePage from "@/components/SectionPicker/ayush/BlockText";
+import ParallaxScroll from "@/components/SectionPicker/ayush/ParralxScroll";
+import ThreeDMarqueeDemo from "@/components/3d-marquee-demo";
 
 export type DynamicRouteProps = { params: Promise<{ path: string[] }> };
 
@@ -67,6 +69,9 @@ export default async function DynamicRoute(props: DynamicRouteProps) {
             <StickyCards />
             <Hemingway />
             <StaticHousePage />
+
+            <ParallaxScroll />
+            <ThreeDMarqueeDemo />
           </div>
           <SectionsRenderer
             {...{
