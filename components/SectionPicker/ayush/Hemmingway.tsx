@@ -313,7 +313,7 @@ export default function Hemingway() {
       `}</style>
 
       <div className="hw-root ">
-        <section className="hw-awards">
+        <section className="hw-awards ">
           <p className="hw-awards-label">Recognition and awards</p>
           <div className="hw-awards-list" ref={awardsListRef}>
             {awards.map((award, i) => (
