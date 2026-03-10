@@ -24,9 +24,7 @@ const Newsletter = () => {
               <MotionP
                 delay={0.6}
                 className="text-lg text-gray-600 text-center 600:text-left"
-                content={
-                  "Stay Updated with Our Law Firm's Latest News and Insights!"
-                }
+                content={"Stay Updated with Our Latest News and Insights!"}
               />
             </div>
 

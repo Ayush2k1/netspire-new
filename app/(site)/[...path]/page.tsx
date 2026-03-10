@@ -9,7 +9,7 @@ import { ALL_PATHNAMES_QUERY } from "@/sanity/lib/queries";
 import GradientHero from "@/components/SectionPicker/ayush/GradientHero";
 import StickyCards from "@/components/SectionPicker/ayush/StickyCards";
 import Hemingway from "@/components/SectionPicker/ayush/Hemmingway";
-import AnimatedCopy from "@/components/SectionPicker/ayush/AnimatedCopy";
+import StaticHousePage from "@/components/SectionPicker/ayush/BlockText";
 
 export type DynamicRouteProps = { params: Promise<{ path: string[] }> };
 
@@ -62,10 +62,12 @@ export default async function DynamicRoute(props: DynamicRouteProps) {
     case "page":
       return (
         <Suspense>
-          <GradientHero />
-          <StickyCards />
-          <Hemingway />
-          <AnimatedCopy />
+          <div className="overflow-x-hidden">
+            <GradientHero />
+            <StickyCards />
+            <Hemingway />
+            <StaticHousePage />
+          </div>
           <SectionsRenderer
             {...{
               fieldName: "body",

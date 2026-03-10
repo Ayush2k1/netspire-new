@@ -243,7 +243,7 @@ export default function StickyCards() {
         }
       `}</style>
 
-      <section ref={sectionRef} className="sc-sticky-cards">
+      <section ref={sectionRef} className="sc-sticky-cards ">
         {CARDS.map((card, i) => (
           <div
             key={card.id}
