@@ -1,16 +1,14 @@
+@import url("https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap");
 @import "tailwindcss";
 
-/* ============================================
-   THEME CONFIGURATION
-   ============================================ */
 @theme {
   /* Container settings */
   --container-center: true;
   --container-padding: 2rem;
-  --container-2xl: 1400px;
+  --container-screens-2xl: 1400px;
 
   /* Custom max-widths */
-  --max-width-container: 1250px;
+  --max-width-container: 1450px;
   --max-width-small: 1000px;
 
   /* Custom breakpoints */
@@ -43,33 +41,35 @@
   --breakpoint-1650: 1650px;
   --breakpoint-1700: 1700px;
 
-  /* Colors - define directly in theme */
-  --color-background: hsl(0 0% 100%);
-  --color-foreground: hsl(222.2 84% 4.9%);
-  --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(222.2 84% 4.9%);
-  --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(222.2 84% 4.9%);
-  --color-primary: hsl(222.2 47.4% 11.2%);
-  --color-primary-foreground: hsl(210 40% 98%);
-  --color-secondary: hsl(210 40% 96.1%);
-  --color-secondary-foreground: hsl(222.2 47.4% 11.2%);
-  --color-muted: hsl(210 40% 96.1%);
-  --color-muted-foreground: hsl(215.4 16.3% 46.9%);
-  --color-accent: hsl(210 40% 96.1%);
-  --color-accent-foreground: hsl(222.2 47.4% 11.2%);
-  --color-destructive: hsl(0 84.2% 60.2%);
-  --color-destructive-foreground: hsl(210 40% 98%);
-  --color-border: hsl(214.3 31.8% 91.4%);
-  --color-input: hsl(214.3 31.8% 91.4%);
-  --color-ring: hsl(222.2 84% 4.9%);
-  --color-off-white: #f8f6f3;
-  --color-skin: #eadbc8;
-  --color-evening: #183c4f;
-  --color-night: #112a37;
+  /* Color system */
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
 
   /* Border radius */
-  --radius: 0.5rem;
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
@@ -77,15 +77,8 @@
   /* Animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-spin: spin 1s linear infinite;
-  --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-bounce: bounce 1s infinite;
 }
 
-/* ============================================
-   KEYFRAME ANIMATIONS
-   ============================================ */
 @keyframes accordion-down {
   from {
     height: 0;
@@ -104,321 +97,225 @@
   }
 }
 
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
   }
-  to {
-    transform: translateX(0);
-    opacity: 1;
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
   }
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes ping {
-  75%,
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-
-@keyframes pulse {
-  50% {
-    opacity: 0.5;
-  }
-}
-
-@keyframes bounce {
-  0%,
-  100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
-}
-
-/* ============================================
-   CSS VARIABLES (for compatibility)
-   ============================================ */
-:root {
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222.2 84% 4.9%;
-  --radius: 0.5rem;
-}
-
-.dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
-  --ring: 212.7 26.8% 83.9%;
-}
-
-/* ============================================
-   BASE STYLES
-   ============================================ */
 @layer base {
   * {
     border-color: hsl(var(--border));
-    font-family: var(--font-montserrat);
-    scroll-padding-top: 80px;
-    scroll-behavior: smooth;
+    font-family: var(--font-dm-sans);
   }
-
   body {
     background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
   }
-
   h1,
   h2,
   h3,
   h4,
   h5 {
-    font-family: var(--font-ebGaramond);
+    font-family: var(--font-playfair);
     font-weight: 500;
   }
 
-  /* Booqable Cart Customizations */
-  .cart-total {
-    .bq-total {
-      background: red !important;
+  .gradient-bg {
+    position: relative !important;
+  }
+
+  .overide-font-sans {
+    font-family: var(--font-dm-sans) !important;
+  }
+  .paragraph {
+    margin-bottom: 20px;
+    color: #858585;
+    font-size: 1.15em;
+    line-height: 1.6em;
+    font-weight: 400;
+  }
+
+  .listContainer {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .arrowListItem {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    font-size: 1.15em;
+    margin-bottom: 10px;
+    color: #858585;
+    list-style-position: inside;
+  }
+
+  .listArrowIcon {
+    display: flex;
+    background: rgb(237, 237, 237);
+    color: black;
+    height: fit-content;
+    padding: 2px;
+    border-radius: 100%;
+    font-size: 0.65em;
+    margin-right: 10px;
+    min-height: 30px;
+    min-width: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .listNumberIcon {
+    display: flex;
+    background: rgb(237, 237, 237);
+    color: black;
+    height: fit-content;
+    padding: 2px;
+    border-radius: 100%;
+    font-size: 0.75em;
+    margin-right: 10px;
+    min-height: 30px;
+    min-width: 30px;
+    align-items: center;
+    justify-content: center;
+  }
+  .h1 {
+    margin-bottom: 30px;
+  }
+
+  .headingOne {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    font-weight: 600;
+  }
+
+  .headingTwo {
+    font-size: 2em;
+    margin-bottom: 14px;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+
+  .headingThree {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-weight: 600;
+  }
+
+  .headingFour {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+    margin-top: 3px;
+    font-weight: 600;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .headingOne {
+      font-size: 2em;
     }
 
-    .bq-checkout-button.bq-back-button.bq-button {
-      display: none !important;
+    .headingTwo {
+      font-size: 1.6em;
+    }
+
+    .headingThree {
+      font-size: 1.4em;
+    }
+
+    .headingFour {
+      font-size: 1.2em;
     }
   }
 
-  .bq-add-to-card {
-    font-family: inherit !important;
-
-    .bq-price {
-      font-size: 1em !important;
+  @media only screen and (max-width: 576px) {
+    .headingOne {
+      font-size: 1.6em;
+      margin-bottom: 30px;
     }
 
-    .bq-price-details {
-      display: none !important;
+    .headingTwo {
+      font-size: 1.4em;
+      margin-bottom: 10px;
+      margin-top: 15px;
     }
 
-    .bq-control {
-      input {
-        display: none !important;
-      }
-
-      .Div-bApbbf {
-        display: none !important;
-      }
-
-      button {
-        border-radius: 1000px !important;
-        font-size: 1.1em !important;
-        height: 50px !important;
-      }
+    .headingThree {
+      font-size: 1.2em;
+      margin-bottom: 5px;
+      margin-top: 8px;
     }
 
-    .bq-actions {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-
-      span {
-        a {
-          font-size: 1em !important;
-        }
-      }
-
-      .bq-control {
-        width: 100% !important;
-      }
+    .headingFour {
+      font-size: 1.1em;
+      margin-bottom: 2px;
+      margin-top: 3px;
     }
-  }
-
-  .side-cart {
-    .booqable-embeddable-cart {
-      height: 100vh !important;
-    }
-
-    .Themed-dkWktR {
-      height: 100% !important;
-    }
-
-    .bq-cart {
-      height: 100% !important;
-
-      .row {
-        height: 100% !important;
-      }
-
-      .bq-poweredby {
-        opacity: 0 !important;
-      }
-    }
-
-    .bq-checkout-button.bq-back-button {
-      display: none;
-    }
-  }
-
-  [data-ui="versionMenu"],
-  [data-ui="Box"],
-  [data-ui="PopoverEditDialog"],
-  [data-ui="MenuButton__popover"],
-  [data-ui="Popover"] {
-    opacity: 1 !important;
-    --motion-content-opacity: 1 !important;
-  }
-
-  .bq-detail.bq-strong {
-    font-size: 20px !important;
-    padding-bottom: 5px;
   }
 }
 
-/* ============================================
-   COMPONENT UTILITIES
-   ============================================ */
 @layer components {
   .animations {
-    transition: all 300ms ease-in;
+    @apply transition-all duration-300 ease-in;
   }
-
   .section-padding {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
-  @media (min-width: 400px) {
-    .section-padding {
-      padding-left: 16px;
-      padding-right: 16px;
-    }
-  }
-
-  @media (min-width: 550px) {
-    .section-padding {
-      padding-top: 120px;
-      padding-bottom: 120px;
-    }
-  }
-
-  @media (min-width: 750px) {
-    .section-padding {
-      padding-left: 45px;
-      padding-right: 45px;
-    }
-  }
-
-  .main-heading {
-    font-size: 2.25rem;
-    font-weight: 800;
-    line-height: 1.1 !important;
-  }
-
-  @media (min-width: 550px) {
-    .main-heading {
-      font-size: 3rem;
-    }
-  }
-
-  @media (min-width: 750px) {
-    .main-heading {
-      font-size: 3.75rem;
-    }
-  }
-
-  .main-heading-two {
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1.1 !important;
-  }
-
-  @media (min-width: 550px) {
-    .main-heading-two {
-      font-size: 1.875rem;
-    }
-  }
-
-  @media (min-width: 750px) {
-    .main-heading-two {
-      font-size: 2.25rem;
-    }
-  }
-
-  .main-heading-three {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
-
-  @media (min-width: 750px) {
-    .main-heading-three {
-      font-size: 1.875rem;
-    }
-  }
-
-  .main-heading-four {
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
-
-  @media (min-width: 750px) {
-    .main-heading-four {
-      font-size: 1.5rem;
-    }
-  }
-
-  .animated-slide-in-left {
-    animation: slideInLeft 0.5s ease-out;
-  }
-
-  .bq-price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    background-color: #fecaca;
+    @apply py-[60px] 550:py-[120px] px-[8px] 400:px-[16px] 750:px-[45px];
   }
 }
