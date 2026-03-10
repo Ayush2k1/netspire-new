@@ -17,7 +17,7 @@ const config = {
     studioUrl: "/studio",
     token: process.env.SANITY_API_WRITE_TOKEN || "",
   },
-  siteName: "Isbister Coertze",
+  siteName: "Netspire",
 };
 
 export default config;

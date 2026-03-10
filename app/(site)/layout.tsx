@@ -27,10 +27,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title:
-    "Boutique Law Firm in Prince Albert, Saskatchewan| Isbister Coertze & Associates",
+  title: "Boutique Law Firm in Prince Albert, Saskatchewan| Netspire",
   description:
-    "Isbister Coertze & Associates is a boutique law firm in Prince Albert, Saskatchewan, offering personalized legal services with a focus on excellence and client satisfaction. Discover our tailored approach to meeting your legal needs.",
+    "Netspire  & Associates is a boutique law firm in Prince Albert, Saskatchewan, offering personalized legal services with a focus on excellence and client satisfaction. Discover our tailored approach to meeting your legal needs.",
   keywords: [
     "Law Firm Prince Albert",
     "Legal Services",
